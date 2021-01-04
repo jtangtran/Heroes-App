@@ -25,7 +25,12 @@ import { InMemoryDataService } from './in-memory-data.service';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule
+    //The httpclientinmemorywebapimodule module intercepts http requests
+    //and returns simulated server responses
+    //will remove when a real server is ready to receive requests
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation : false}
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
